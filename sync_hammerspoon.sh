@@ -3,8 +3,8 @@ function sync_hammerspoon() {
     echorun cd ~/projects/dothammerspoon || return $?
     echorun git pull --recurse-submodules || return $?
     echorun git submodule update --recursive --remote || return $?
-    git status | grep -q 'Your branch is up-to-date'
-    if [ $? -gt 0 ]; then
+    git status | grep -q 'Changes not staged for commit'
+    if [ $? -eq 0 ]; then
       echorun git commit -a -m "Update configuration" || return $?
       echorun git push || return $?
     fi
