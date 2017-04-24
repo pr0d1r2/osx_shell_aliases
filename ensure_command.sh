@@ -7,6 +7,9 @@ function ensure_command() {
     aws)
       echorun brew install awscli || return $?
       ;;
+    gpg)
+      echorun brew install gnupg || return $?
+      ;;
     postgres)
       echorun brew install postgresql || return $?
       ;;
