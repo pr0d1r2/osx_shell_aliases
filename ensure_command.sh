@@ -13,6 +13,9 @@ function ensure_command() {
     postgres)
       echorun brew install postgresql || return $?
       ;;
+    magick)
+      echorun brew install imagemagick || return $?
+      ;;
     *)
       local ensure_command_brew_params_PACKAGE=`brew search $1 | grep "^$1$"`
       case $ensure_command_brew_params_PACKAGE in
