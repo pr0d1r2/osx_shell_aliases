@@ -1,8 +1,5 @@
 function ensure_command() {
-  which $1 &>/dev/null
-  if [ $? -eq 0 ]; then
-    return 0
-  fi
+  which $1 &>/dev/null && return 0
   case $1 in
     aws)
       echorun brew install awscli || return $?
