@@ -1,5 +1,5 @@
 function ensure_command() {
-  which $1 &>/dev/null && return 0
+  which `echo $1 | cut -f 1 -d @` &>/dev/null && return 0
   case $1 in
     aws)
       echorun brew install awscli || return $?
@@ -30,6 +30,11 @@ function ensure_command() {
           echorun brew install $ensure_command_brew_params_PACKAGE || return $?
           ;;
       esac
+      ;;
+  esac
+  case $1 in
+    *@*)
+      brew link $1 --force || return $?
       ;;
   esac
 }
