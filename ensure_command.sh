@@ -1,17 +1,8 @@
 function ensure_command() {
   which `echo $1 | cut -f 1 -d @` &>/dev/null && return 0
   case $1 in
-    aws)
-      echorun brew install awscli || return $?
-      ;;
-    gpg)
-      echorun brew install gnupg || return $?
-      ;;
-    postgres)
-      echorun brew install postgresql || return $?
-      ;;
-    magick)
-      echorun brew install imagemagick || return $?
+    aws | gpg | postgres | magick)
+      echorun brew install `ensure_command_package $1` || return $?
       ;;
     *)
       local ensure_command_brew_params_PACKAGE=`brew search $1 | grep "^$1$"`
