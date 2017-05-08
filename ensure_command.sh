@@ -1,7 +1,7 @@
 function ensure_command() {
   which `echo $1 | cut -f 1 -d @` &>/dev/null && return 0
   case $1 in
-    aws | gpg | postgres | magick)
+    aws | gpg | postgres | magick | socksify)
       echorun brew install `ensure_command_package $1` || return $?
       ;;
     *)

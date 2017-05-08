@@ -12,6 +12,9 @@ function ensure_command_package() {
     magick)
       echo imagemagick || return $?
       ;;
+    socksify)
+      echo dante || return $?
+      ;;
     *)
       echo $1 || return $?
       ;;

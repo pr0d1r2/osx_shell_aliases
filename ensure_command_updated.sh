@@ -1,6 +1,6 @@
 function ensure_command_updated() {
   case $1 in
-    aws | gpg | postgres | magick)
+    aws | gpg | postgres | magick | socksify)
       brew upgrade `ensure_command_package $1` 2>/dev/null || \
         brew install `ensure_command_package $1` 2>/dev/null || \
           brew install `ensure_command_package $1` || return $?
