@@ -1,5 +1,7 @@
 function renice_audio() {
-  renice_named coreaudiod
-  renice_named AudioToolbox.framework
-  renice_named CoreAudio.framework
+  renice_named \
+    coreaudiod \
+    com.apple.audio.SandboxHelper \
+    com.apple.audio.DriverHelper
+  return $?
 }
