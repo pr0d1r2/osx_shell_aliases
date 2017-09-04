@@ -16,7 +16,7 @@ function ensure_command_package() {
       echo dante || return $?
       ;;
     *)
-      echo $1 || return $?
+      echo "$1" || return $?
       ;;
   esac
 }
