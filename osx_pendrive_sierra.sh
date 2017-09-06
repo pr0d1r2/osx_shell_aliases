@@ -1,5 +1,6 @@
 function osx_pendrive_sierra() {
   local osx_pendrive_sierra_RESPONSE
+  local osx_pendrive_sierra_PATH
   echo "Do you really want to make '$1' and Sierra Install Pendrive? [y/N]"
   read -r osx_pendrive_sierra_RESPONSE
   case $osx_pendrive_sierra_RESPONSE in
@@ -9,10 +10,15 @@ function osx_pendrive_sierra() {
       return 200
       ;;
   esac
+  if [ -d /Volumes/Storage/Applications/Install\ macOS\ Sierra.app ]; then
+    osx_pendrive_sierra_PATH="/Volumes/Storage/Applications/Install macOS Sierra.app"
+  else
+    osx_pendrive_sierra_PATH="/Applications/Install macOS Sierra.app"
+  fi
   sudo \
-    /Applications/Install\ macOS\ Sierra.app/Contents/Resources/createinstallmedia \
+    "$osx_pendrive_sierra_PATH/Contents/Resources/createinstallmedia" \
     --volume "$1" \
     --applicationpath \
-    /Applications/Install\ macOS\ Sierra.app \
+    "$osx_pendrive_sierra_PATH" \
     return $?
 }
