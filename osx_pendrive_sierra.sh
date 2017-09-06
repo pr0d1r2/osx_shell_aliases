@@ -1,7 +1,7 @@
 function osx_pendrive_sierra() {
   local osx_pendrive_sierra_RESPONSE
   local osx_pendrive_sierra_PATH
-  echo "Do you really want to make '$1' and Sierra Install Pendrive? [y/N]"
+  echo "Do you really want to make '$1' a Sierra Install Pendrive? [y/N]"
   read -r osx_pendrive_sierra_RESPONSE
   case $osx_pendrive_sierra_RESPONSE in
     y | Y | yes | YES)
