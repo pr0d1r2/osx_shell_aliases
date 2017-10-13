@@ -3,6 +3,9 @@ function ensure_command_package() {
     aws)
       echo awscli || return $?
       ;;
+    7z)
+      echo p7zip || return $?
+      ;;
     gpg)
       echo gnupg || return $?
       ;;
