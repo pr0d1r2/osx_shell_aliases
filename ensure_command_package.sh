@@ -1,28 +1,29 @@
 function ensure_command_package() {
   case $1 in
     aws)
-      echo awscli || return $?
+      echo awscli
       ;;
     7z)
-      echo p7zip || return $?
+      echo p7zip
       ;;
     gpg)
-      echo gnupg || return $?
+      echo gnupg
       ;;
     postgres)
-      echo postgresql || return $?
+      echo postgresql
       ;;
     magick)
-      echo imagemagick || return $?
+      echo imagemagick
       ;;
     socksify)
-      echo dante || return $?
+      echo dante
       ;;
     xml2-config)
-      echo libxml2 || return $?
+      echo libxml2
       ;;
     *)
-      echo "$1" || return $?
+      echo "$1"
       ;;
   esac
+  return $?
 }
