@@ -18,6 +18,9 @@ function ensure_command_package() {
     socksify)
       echo dante || return $?
       ;;
+    xml2-config)
+      echo libxml2 || return $?
+      ;;
     *)
       echo "$1" || return $?
       ;;
