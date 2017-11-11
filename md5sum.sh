@@ -1,3 +1,3 @@
 function md5sum() {
-  md5 $@ || return $?
+  md5 "$@" || return $?
 }
