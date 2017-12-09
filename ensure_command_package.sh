@@ -7,6 +7,7 @@ function ensure_command_package() {
     magick) echo imagemagick;;
     socksify) echo dante;;
     xml2-config) echo libxml2;;
+    redis-cli) echo redis;;
     *) echo "$1";;
   esac
   return $?
