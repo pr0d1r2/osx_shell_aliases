@@ -4,7 +4,7 @@ function ensure_command() {
   do
     which "$(echo "$ensure_command_NAME" | cut -f 1 -d @)" &>/dev/null && return 0
     case $ensure_command_NAME in
-      aws | gpg | postgres | magick | socksify)
+      aws | gpg | postgres | Magick-config | Magick-config@6 | socksify)
         echorun brew install "$(ensure_command_package "$ensure_command_NAME")" || return $?
         ;;
       *)
@@ -30,7 +30,7 @@ function ensure_command() {
     esac
     case $ensure_command_NAME in
       *@*)
-        brew link "$ensure_command_NAME" --force || return $?
+        brew link "$(ensure_command_package "$ensure_command_NAME")" --force || return $?
         ;;
     esac
   done
