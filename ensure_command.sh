@@ -2,7 +2,7 @@ function ensure_command() {
   local ensure_command_NAME
   for ensure_command_NAME in "$@"
   do
-    which "$(echo "$ensure_command_NAME" | cut -f 1 -d @)" &>/dev/null && return 0
+    command -v "$(echo "$ensure_command_NAME" | cut -f 1 -d @)" &>/dev/null && return 0
     case $ensure_command_NAME in
       aws | gpg | postgres | Magick-config | Magick-config@6 | socksify)
         echorun brew install "$(ensure_command_package "$ensure_command_NAME")" || return $?
