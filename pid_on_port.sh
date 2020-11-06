@@ -6,5 +6,6 @@
 #   8472
 #   6969
 function pid_on_port() {
-  parallel "lsof -nP -iTCP:{} | grep LISTEN | awk '{ print \$2 }'" ::: $@ | sort -u
+  parallel "lsof -nP -iTCP:{} | grep LISTEN | awk '{ print \$2 }'" ::: $@ | sort -u | grep -e "^[0-9]"
+  return $?
 }
