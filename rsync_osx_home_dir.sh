@@ -18,6 +18,8 @@ function rsync_osx_home_dir() {
     --exclude "Library/Developer" \
     --exclude "Library/Logs" \
     --exclude "Library/Mobile Documents" \
+    --exclude "Library/Group Containers/group.com.docker" \
+    --exclude "Library/Containers/com.docker.docker" \
     --exclude ".rbenv" \
     --exclude ".vagrant.d" \
 
