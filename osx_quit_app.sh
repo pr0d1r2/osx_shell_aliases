@@ -1,3 +1,3 @@
 function osx_quit_app() {
-  osascript -e 'quit app "$@"'
+  osascript -e "quit app '$@'"
 }
